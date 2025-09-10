@@ -13,7 +13,7 @@ const authenticateToken = (req, res, next) => {
 };
 
 const authorizeAdmin = (req, res, next) => {
-  if (req.user.role !== "admin") return res.status(403).json({ message: "Admin access only" });
+  if (req.user.role !== "admin") return res.status(403).json({status: "Failed",role: req.user.role,  message: "Admin access only" });
   next();
 };
 
