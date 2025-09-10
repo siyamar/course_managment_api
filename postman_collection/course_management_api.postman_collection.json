@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "dcfe5902-3340-45d9-b365-fd2b04551a5e",
+		"name": "Course Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39866977"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"abdur\",\r\n    \"email\":\"abdur@gmail.com\",\r\n    \"password\":\"123456\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"abdur@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzBjYWIxYjU5MmZjZDE2ZWRkNTA5OCIsImlhdCI6MTc1NzQ2NjI2OSwiZXhwIjoxNzU4MDcxMDY5fQ.5auh5LpgKLP1G_Pi8K-r-aQdvkuOrdIx6wSEOJK6zig\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzA3Zjk1YzM4N2MxMTQ2MWQ4N2Y5MSIsImlhdCI6MTc1NzQ0NjM3MiwiZXhwIjoxNzU4MDUxMTcyfQ.iMIsA51MLZ3sCrdSE-GtLJgleq8jhBaUqki_YIuUhfI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Courses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Course by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/courses/68c0ceaf03a6c6fc130a576c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"courses",
+						"68c0ceaf03a6c6fc130a576c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Course (Admin)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzBjYWIxYjU5MmZjZDE2ZWRkNTA5OCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NzQ2ODA0MywiZXhwIjoxNzU3NDY5ODQzfQ.pqxcLrL8oeEqyIbafG-HldZYZQXEnIGZ-Q0wFtC6ZAU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"OOP\",\r\n    \"description\": \"Very important course for student\",\r\n    \"price\": 3600,\r\n    \"instructor\": \"ABC Instructor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Course (Admin)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzBjYWIxYjU5MmZjZDE2ZWRkNTA5OCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NzQ2ODA0MywiZXhwIjoxNzU3NDY5ODQzfQ.pqxcLrL8oeEqyIbafG-HldZYZQXEnIGZ-Q0wFtC6ZAU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/courses/68c0ceaf03a6c6fc130a576c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"courses",
+						"68c0ceaf03a6c6fc130a576c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Course",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzBkODIyMzZjYjM2YjQ3NmViNzM4ZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU3NDY4NzIwLCJleHAiOjE3NTc0NzA1MjB9.jbC4uQXaveWNK3UEDwaZwPoVVgKPV5r9fXIPWCYIXVQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"68c0d75e36cb36b476eb738b\",\r\n    \"amount\": 3600\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/purchases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"purchases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My Purchases",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzBkODIyMzZjYjM2YjQ3NmViNzM4ZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU3NDY4NzIwLCJleHAiOjE3NTc0NzA1MjB9.jbC4uQXaveWNK3UEDwaZwPoVVgKPV5r9fXIPWCYIXVQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/purchases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"purchases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "base-url",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000"
+				}
+			},
+			"response": []
+		}
+	]
+}
